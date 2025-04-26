@@ -1,0 +1,28 @@
+{
+  "name": "nilgiri",
+  "version": "0.0.0",
+  "description": "A hybrid automation framework that seamlessly integrates Cucumber  BDD approach with Playwright powerful browser automation capabilities, enabling expressive, behavior-driven test scenarios for robust end-to-end testing in web applications.",
+  "scripts": {
+    "nilgiriDependencyInstall": " npm i && npm install -D @playwright/test && npx playwright install",
+    "local": "npx playwright test",
+    "fetch:db": "ts-node utils/fetchDBData.ts",
+    "cucumberRun": "cucumber-js test || true",
+    "posttest": "ts-node generateReport.ts",
+    "automation": "npm run nilgiriDependencyInstall && npm run local && npm run cucumberRun && npm run posttest "
+  },
+  "dependencies": {
+    "@cucumber/cucumber": "^10.0.1",
+    "dotenv": "^16.5.0",
+    "monocart": "^1.1.0",
+    "multiple-cucumber-html-reporter": "*",
+    "nilgirihub": "*",
+    "pg": "^8.14.1",
+    "playwright": "^*",
+    "ts-node": "^10.9.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "@types/node": "^22.14.1",
+    "@types/pg": "^8.11.12"
+  }
+}

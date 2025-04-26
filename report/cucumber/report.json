@@ -1,0 +1,133 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "tricon-infotech-website-navigation;validate-visibility-of-all-menu-items",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Validate visibility of all menu items",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 2381210299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I am on the Tricon Infotech homepage",
+            "match": {
+              "location": "endtoend\\steps\\homeStepDef.ts:9"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 5045600800,
+              "error_message": "Error: function timed out, ensure the promise resolves within 5000 milliseconds\n    at Timeout.<anonymous> (C:\\Users\\adithya.anjanappa\\OneDrive - Tricon Infotech Pvt. Ltd\\Desktop\\Gmac Advancery\\nilgiri\\node_modules\\@cucumber\\cucumber\\src\\time.ts:52:14)\n    at listOnTimeout (node:internal/timers:594:17)\n    at processTimers (node:internal/timers:529:7)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 6,
+            "name": "I should see all menu items",
+            "match": {
+              "location": "endtoend\\steps\\homeStepDef.ts:13"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1824568200
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "tricon-infotech-website-navigation;validate-visibility-of-the-contact-us-section",
+        "keyword": "Scenario",
+        "line": 8,
+        "name": "Validate visibility of the Contact Us section",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 2076396200
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 9,
+            "name": "I am on the Tricon Infotech homepage",
+            "match": {
+              "location": "endtoend\\steps\\homeStepDef.ts:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4380521300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 10,
+            "name": "I scroll to the bottom of the page",
+            "match": {
+              "location": "endtoend\\steps\\homeStepDef.ts:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 69654399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "I should see the Contact Us section",
+            "match": {
+              "location": "endtoend\\steps\\homeStepDef.ts:21"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 264846799
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1779301500
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "tricon-infotech-website-navigation",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Tricon Infotech Website Navigation",
+    "tags": [],
+    "uri": "endtoend\\features\\home.feature"
+  }
+]

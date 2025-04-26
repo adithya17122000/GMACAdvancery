@@ -1,0 +1,8 @@
+
+{
+  "brevo": {
+      "apiKey": "your_brevo_api_key",
+      "emailSubject": "Verification",
+      "regex": "\\b\\d{6}\\b"
+  }
+}
