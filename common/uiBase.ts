@@ -20,7 +20,6 @@ const gmacApps = {
     const url = baseURL + resource;
     await page.goto(url);
     await expect(page.locator(LandingPage.industryHeading)).toBeVisible();
-
   },
 
   async createAccountWithEmail({ page }) {
@@ -112,10 +111,17 @@ const gmacApps = {
     await page.locator(LoginPage.signIn).click();
     await expect(page.locator(HomePage.navbar)).toBeVisible();
     await expect(page.locator(HomePage.heading)).toBeVisible();
-    await page.waitForTimeout(2000);
+    // await page.waitForTimeout(2000);
+    // await page.getByLabel('Open Menu').click();
+    // // await page.getByRole('button', { name: 'Logout' }).click();
+    // // await page.locator(HomePage.logout).click();
+  },
+
+  async logout({ page }) {
     await page.getByLabel('Open Menu').click();
-    await page.getByRole('button', { name: 'Logout' }).click();
     await page.locator(HomePage.logout).click();
+    await expect(page.locator(LandingPage.createAccount)).toBeVisible();
+    await expect(page.locator(LandingPage.login)).toBeVisible();
   },
 
   async inValideLoginCredentials({ page, baseURL }) {
@@ -302,7 +308,7 @@ async forgotPasswordInitiate({ page }) {
   await page.locator(ForgotPassword.verificationcode).click();
 
   console.log("Verification code requested. Proceed to retrieve the code.");
-},
+  },
 
 async getVerificationCode({ page }) {
   // Navigate to Gmail
@@ -330,7 +336,7 @@ async getVerificationCode({ page }) {
       console.error('Verification code not found in the email.');
       throw new Error('Verification code not found in the email.');
   }
-},
+  },
 
 }
 

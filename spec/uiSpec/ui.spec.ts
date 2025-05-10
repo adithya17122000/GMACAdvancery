@@ -32,7 +32,7 @@ test('Validate the landing page', async ({ page, baseURL }) => {
 //     await testSpec.createAccountWithGoogle({page});
 // })
 
-test.only('Login and Logout with local credentials', async ({ page, baseURL }) => {
+test('Login and Logout with local credentials', async ({ page, baseURL }) => {
     await testSpec.validateTheLoadingofLandingPage({ page, baseURL });
     await testSpec.emailLogin({ page });
 
@@ -90,8 +90,6 @@ test('User not found social login', async ({ page, baseURL }) => {
 //     console.log('✅ Program details saved to programDetails.json');
 // });
 
-
-// tests/program-details.spec.ts
 
 test('Program details', async ({ baseURL, page }) => {
     await testSpec.emailLogin({ page });
@@ -176,3 +174,35 @@ test('compare dbPrograms.json and programDetails.json', async () => {
     console.log('All UI programs are present in DB with matching fields.');
   });
   
+
+test('Login and Logout',async({page})=>{
+    await page.goto("https://advancery.gmac.com")
+    await expect(page.locator("svg[aria-label='GMAC Advancery']")).toBeVisible();
+    await page.waitForSelector("//span[normalize-space()='Cookie Consent']");
+    await page.locator("//button[2]").click();
+    await page.locator("//span[normalize-space()='Login']").click();
+    await page.locator("#email").fill("testtricon@gmail.com");
+    await page.locator("#password").fill("Tricon@12");
+    await page.locator("#next").click();
+    await expect(page.locator(".Navbar_desktopNav__QwxQJ")).toBeVisible();
+    await expect(page.locator("svg[aria-label='GMAC Advancery']")).toBeVisible();
+    await page.waitForSelector('//div[@role="presentation"]');
+    await page.locator('//div[@role="presentation"]').click();
+    await page.locator("a[href$='/internal-api/auth/logout']").click();
+});
+
+
+test('Validate the Explore page and search a product', async ({ page, baseURL }) => {
+    await testSpec.validateTheLoadingofLandingPage({ page, baseURL });
+    await testSpec.emailLogin({ page });
+    await page.getByRole('link', { name: 'Explore' }).click();
+    await page.getByLabel('Search').click();
+    await page.getByPlaceholder('Search all programs by name').fill('ESMT Berlin Full-time MBA');
+    await page.waitForTimeout(2000);
+    const programNameRaw = await page.locator("(//div[@data-align='start'])[6]").allInnerTexts();
+    expect(programNameRaw).toBeTruthy();
+    await testSpec.logout({ page });
+    
+
+
+})
