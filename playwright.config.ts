@@ -1,6 +1,6 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
-import teamsWebhook from './report/teams-webhook';
+// import teamsWebhook from './report/teams-webhook';
 
 export default defineConfig({
   testDir: './spec',
@@ -46,7 +46,7 @@ export default defineConfig({
       onEnd: async (reportData, capability) => {
         if (process.env.CI) {
           // teams and testRail integration with webhook
-          await teamsWebhook(reportData, capability);
+          // await teamsWebhook(reportData, capability);
           //await testrail(reportData, capability);
         }
       }
@@ -59,7 +59,7 @@ export default defineConfig({
     timeout: 30 * 1000,
   },
   use: {
-    baseURL: 'https://gmac:skills@advancery.uat.gmac.com',
+    baseURL: 'https://gmac:skills@advancery.dev.gmac.com',
     browserName: "chromium",
     headless:false,
     screenshot:'on',
