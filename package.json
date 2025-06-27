@@ -13,6 +13,7 @@
   "dependencies": {
     "@cucumber/cucumber": "^10.0.1",
     "dotenv": "^16.5.0",
+    "mailosaur": "^8.8.1",
     "monocart": "^1.1.0",
     "multiple-cucumber-html-reporter": "*",
     "nilgirihub": "*",
